@@ -18,6 +18,8 @@ gem 'slim-rails'
 gem 'therubyracer', :platform=>:ruby
 
 group :development do
+  gem 'annotate' # annotating models
+
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
   gem 'spring'

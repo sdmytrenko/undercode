@@ -19,6 +19,7 @@ gem 'therubyracer', :platform=>:ruby
 
 group :development do
   gem 'annotate' # annotating models
+  gem 'better_errors' # for views
 
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
@@ -38,6 +39,8 @@ group :development, :test do
   gem 'byebug' #, platform: :mri
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'pry-rails' # better view for console objects
+  gem 'pry-rescue'
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'sqlite3'

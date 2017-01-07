@@ -4,7 +4,7 @@ class CreateCourses < ActiveRecord::Migration[5.0]
       t.string :name
       t.integer :season
       t.text :description
-      t.datetime :start_time
+      t.datetime :start_date
 
       t.timestamps
     end

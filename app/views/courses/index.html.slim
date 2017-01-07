@@ -1,0 +1,16 @@
+h1
+  |All Courses
+table.table
+  thead
+    tr
+      th
+        | Name
+  tbody
+    - @courses.each do |course|
+      tr
+        td
+          = link_to course.name, course
+        td
+          = course.description
+        td
+          = course.start_date

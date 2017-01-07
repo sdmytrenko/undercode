@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20170104202640) do
     t.string   "name"
     t.integer  "season"
     t.text     "description"
-    t.datetime "start_time"
+    t.datetime "start_date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

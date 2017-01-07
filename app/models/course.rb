@@ -6,7 +6,7 @@
 #  name        :string
 #  season      :integer
 #  description :text
-#  start_time  :datetime
+#  start_date  :datetime
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

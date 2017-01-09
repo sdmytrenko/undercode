@@ -1,0 +1,20 @@
+h1
+  |Lectures List
+table.table
+  thead
+    tr
+      th
+        | Name
+  tbody
+    - @lectures.each do |lecture|
+      tr
+        td
+          = link_to lecture.name, course_lecture_path(@lecture.course, lecture)
+        td
+          = lecture.plain
+        td
+          = lecture.hometask
+        td
+          = lecture.litterature
+        /td/
+         /= link_to 'Delete lecture', admin_lecture_path(lecture), method: :delete, data:{confirm: 'Are you sure?'}/

@@ -25,8 +25,17 @@
 #
 
 class User < ApplicationRecord
+  ROLES = ['admin', 'mentor', 'trainee', 'user']
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  validates :name, presence: true, length: {minimum: 5}
+
+  ROLES.each do |role_name| # перевірка ролі користувача
+    define_method "#{role_name}?" do
+      self.role = role_name
+    end
+  end
 end

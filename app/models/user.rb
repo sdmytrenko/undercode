@@ -17,6 +17,7 @@
 #  updated_at             :datetime         not null
 #  name                   :string
 #  role                   :string           default("user")
+#  active                 :boolean          default("true")
 #
 # Indexes
 #
@@ -31,7 +32,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :name, presence: true, length: {minimum: 5}
+  # validates :name, presence: true, length: {minimum: 5}
 
   ROLES.each do |role_name| # перевірка ролі користувача
     define_method "#{role_name}?" do

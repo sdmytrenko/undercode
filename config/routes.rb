@@ -14,5 +14,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :courses, except: [:index, :show]
+    resources :users do
+      member do
+        patch 'toggle_active'
+      end
+    end
   end
 end

@@ -16,6 +16,8 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  name                   :string
+#  role                   :string           default("user")
+#  active                 :boolean          default("true")
 #
 # Indexes
 #

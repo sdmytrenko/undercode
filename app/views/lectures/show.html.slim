@@ -1,0 +1,16 @@
+h1
+  | lecture # #{@lecture.id}
+
+h5
+  | Lecture name 
+  = @lecture.name
+
+h4
+  | Plain: 
+  = @lecture.plain
+  p
+  |hometask: 
+  = @lecture.hometask
+  p
+  |litterature: 
+  = @lecture.litterature

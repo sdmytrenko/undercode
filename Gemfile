@@ -17,6 +17,8 @@ gem 'simple_form'
 gem 'slim-rails'
 gem 'therubyracer', :platform=>:ruby
 
+gem 'omniauth-github'
+
 group :development do
   gem 'annotate' # annotating models
   gem 'better_errors' # for views

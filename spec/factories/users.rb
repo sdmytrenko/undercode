@@ -18,6 +18,8 @@
 #  name                   :string
 #  role                   :string           default("user")
 #  active                 :boolean          default("true")
+#  provider               :string
+#  uid                    :string
 #
 # Indexes
 #

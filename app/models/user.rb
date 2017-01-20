@@ -20,6 +20,7 @@
 #  active                 :boolean          default("true")
 #  provider               :string
 #  uid                    :string
+
 #
 # Indexes
 #

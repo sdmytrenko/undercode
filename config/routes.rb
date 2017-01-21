@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
 
   resources :courses do #, only: [:index, :show ] do
-    resources :lectures, only: [:index, :show] #, shallow: true
+    resources :lectures #, shallow: true #, only: [:index, :show]
   end
 
   namespace :admin do

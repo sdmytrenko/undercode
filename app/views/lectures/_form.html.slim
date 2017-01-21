@@ -1,0 +1,11 @@
+= simple_form_for([@lecture.course, @lecture]) do |f|
+  ul.text-danger
+    - @lecture.errors.full_messages.each do |m|
+      li = m
+
+  = f.input :name
+  = f.input :plain
+  = f.input :hometask
+  = f.input :litterature
+
+  = f.button :submit

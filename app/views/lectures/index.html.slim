@@ -10,6 +10,8 @@ table.table
       tr
         td
           = link_to lecture.name, course_lecture_path(@lecture.course, lecture)
+        td 
+          = lecture.course_id
         td
           = lecture.plain
         td

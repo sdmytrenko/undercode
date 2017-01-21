@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
 
-  before_action :find_course, only: [:edit, :update, :destroy]
+  before_action :find_course, only: [:edit, :update, :show, :destroy]
 
   def index
     @courses = Course.all
@@ -20,7 +20,6 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @course = Course.find(params[:id])
   end
 
   def edit

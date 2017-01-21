@@ -15,4 +15,6 @@ table.table
         td
           = course.start_date
         td
-         = link_to 'Delete course', admin_course_path(course), method: :delete, data:{confirm: 'Are you sure?'}
+          = link_to 'Edit course', edit_course_path(course)
+        td
+          = link_to 'Delete course', course_path(course), method: :delete, data:{confirm: 'Are you sure?'}

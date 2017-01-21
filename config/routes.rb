@@ -8,12 +8,12 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   resources :users, only: [:index, :show]
 
-  resources :courses, only: [:index, :show ] do
+  resources :courses do #, only: [:index, :show ] do
     resources :lectures, only: [:index, :show] #, shallow: true
   end
 
   namespace :admin do
-    resources :courses, except: [:index, :show]
+    # resources :courses, except: [:index, :show]
     resources :users do
       member do
         patch 'toggle_active'

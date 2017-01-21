@@ -1,4 +1,4 @@
-= simple_form_for([@lecture.course, @lecture]) do |f|
+= simple_form_for [@course, @lecture] do |f|
   ul.text-danger
     - @lecture.errors.full_messages.each do |m|
       li = m

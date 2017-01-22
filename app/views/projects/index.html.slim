@@ -1,0 +1,26 @@
+h1 Projects#index
+p Find me in app/views/projects/index.html.slim
+
+
+h1
+  |Projects List
+table.table
+  thead
+    tr
+      th
+        | Name
+  tbody
+    - @projects.each do |project|
+      tr
+        td
+          = link_to project.name, course_project_path(@course, project)
+        td 
+          = project.course_id
+        td
+          = project.repo
+        td
+          = project.description
+        td
+          = project.tasks
+        /td/
+         /= link_to 'Delete project', admin_project_path(project), method: :delete, data:{confirm: 'Are you sure?'}/

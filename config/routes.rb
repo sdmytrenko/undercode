@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :courses do #, only: [:index, :show ] do
     resources :lectures #, shallow: true #, only: [:index, :show]
+    resources :projects
   end
 
   namespace :admin do

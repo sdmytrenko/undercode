@@ -1,6 +1,7 @@
 class LecturesController < ApplicationController
 
   before_action :find_course
+  before_action :find_lecture, only: [:edit, :update, :show]
 
   def index
     @lectures = Lecture.where("course_id = #{params[:course_id]}")
@@ -21,11 +22,9 @@ class LecturesController < ApplicationController
   end
 
   def edit
-    @lecture = Lecture.find(params[:id])
   end
 
   def update
-    @lecture = Lecture.find(params[:id])
     if @lecture.update(lecture_params)
       redirect_to course_lectures_path, flash: {notice: 'Post successfuly updated'}
     else
@@ -34,7 +33,6 @@ class LecturesController < ApplicationController
   end
 
   def show
-    @lecture = Lecture.find(params[:id])
   end
 
   def destroy
@@ -43,6 +41,10 @@ class LecturesController < ApplicationController
   private
     def find_course
       @course = Course.find(params[:course_id])
+    end
+
+    def find_lecture
+      @lecture = Lecture.find(params[:id])
     end
 
     def lecture_params

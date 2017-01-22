@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
 
   before_action :find_course
+  before_action :find_project, only: [:edit, :update, :show]
 
   def index
     @projects = Project.where("course_id = #{params[:course_id]}")
@@ -14,18 +15,16 @@ class ProjectsController < ApplicationController
     @project = @course.projects.new(project_params)
 
     if @project.save
-      redirect_to course_projects_path
+      redirect_to course_project_path(@course, @project)
     else
       render :new
     end
   end
 
   def edit
-    @project = Project.find(params[:id])
   end
 
   def update
-    @project = Project.find(params[:id])
     if @project.update(lecture_params)
       redirect_to course_projects_path, flash: {notice: 'Post successfuly updated'}
     else
@@ -34,7 +33,6 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
   end
 
   def destroy
@@ -43,6 +41,10 @@ class ProjectsController < ApplicationController
   private
     def find_course
       @course = Course.find(params[:course_id])
+    end
+
+    def find_project
+      @project = Project.find(params[:id])
     end
 
     def project_params

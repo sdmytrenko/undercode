@@ -1,0 +1,15 @@
+h1 Projects#edit
+p Find me in app/views/projects/edit.html.slim
+
+.custom-container
+  h1.add-text-purple-color
+    | Edit Project
+
+  = simple_form_for [@course, @project]  do |f|
+
+    = f.input :name
+    = f.input :repo
+    = f.input :description
+    = f.input :tasks
+
+    = f.button :submit

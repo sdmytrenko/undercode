@@ -1,0 +1,12 @@
+.custom-container
+  h1.add-text-purple-color
+    | Edit Lecture
+
+  = simple_form_for [@course, @lecture] do |f|
+
+    = f.input :name
+    = f.input :plain
+    = f.input :hometask
+    = f.input :litterature
+
+    = f.button :submit

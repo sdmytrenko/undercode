@@ -9,7 +9,9 @@ table.table
     - @lectures.each do |lecture|
       tr
         td
-          = link_to lecture.name, course_lecture_path(@lecture.course, lecture)
+          = link_to lecture.name, course_lecture_path(@course, lecture)
+        td 
+          = lecture.course_id
         td
           = lecture.plain
         td

@@ -1,0 +1,10 @@
+h1 Posts#edit
+p Find me in app/views/posts/edit.html.slim
+
+| Edit Lecture
+= simple_form_for [@post]  do |f|
+
+  = f.input :title
+  = f.input :description
+
+  = f.button :submit

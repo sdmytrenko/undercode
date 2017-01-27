@@ -1,0 +1,21 @@
+h1 Posts#index
+p Find me in app/views/posts/index.html.slim
+h1
+  |POsts
+table.table
+  thead
+    tr
+      th
+        | Name
+  tbody
+    - @posts.each do |post|
+      tr
+        td
+          = link_to post.title, post_path(post)
+        td 
+          = post.user.name
+        td
+          = post.description
+
+        /td/
+         /= link_to 'Delete post', admin_lecture_path(post), method: :delete, data:{confirm: 'Are you sure?'}/

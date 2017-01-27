@@ -21,6 +21,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new(post: @post) # # Для simple_form_for([@post, @comment])
   end
 
   def edit

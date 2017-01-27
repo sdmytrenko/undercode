@@ -18,3 +18,7 @@ h4
   p
   |updated_at: 
   = @post.updated_at
+
+
+= render 'comments/list', post: @post
+= render 'comments/form', post: @post

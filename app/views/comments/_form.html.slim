@@ -1,0 +1,5 @@
+= simple_form_for([@post, @comment]) do |f|
+  = f.input :text, label: false, rows: 4
+  - if @comment.post && @comment.post.user == current_user
+    = f.input :post_closed, as: :boolean, class: 'btn btn-primary'
+  = f.button :submit

@@ -1,0 +1,14 @@
+- @post.comments.each do |comment|
+  div.media id="comment-#{comment.id}"
+
+    div.media-body
+      h4.media-heading
+        = link_to (comment.user.name), user_path(comment.user.id)
+        small
+          | , 
+          => l(comment.created_at, format: :short)
+          - if comment.user == current_user
+            => link_to 'Edit', edit_comment_path(comment)
+            = link_to 'Delete', comment_path(comment), method: :delete, data: {confirm: 'Are you sure?'}
+        p
+        = comment.text

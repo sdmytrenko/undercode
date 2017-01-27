@@ -1,0 +1,10 @@
+h1 Posts#new
+p Find me in app/views/posts/new.html.slim
+
+
+= simple_form_for [@post]  do |f|
+
+  = f.input :title
+  = f.input :description
+
+  = f.button :submit

@@ -1,0 +1,24 @@
+h1 Posts#show
+p Find me in app/views/posts/show.html.slim
+
+
+h1
+  | Post from # #{@post.user.name}
+
+h5
+  | Post name 
+  = @post.title
+
+h4
+  | Description: 
+  = @post.description
+  p
+  |created_at: 
+  = @post.created_at
+  p
+  |updated_at: 
+  = @post.updated_at
+
+
+= render 'comments/list', post: @post
+= render 'comments/form', post: @post

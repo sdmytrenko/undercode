@@ -18,6 +18,8 @@ gem 'slim-rails'
 gem 'therubyracer', :platform=>:ruby
 
 gem 'omniauth-github'
+gem "wysiwyg-rails"
+gem 'truncate_html'
 
 group :development do
   gem 'annotate' # annotating models

@@ -348,6 +348,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   faker
+  font-awesome-rails
   guard-bundler
   guard-rails
   guard-rspec

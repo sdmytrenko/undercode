@@ -5,3 +5,12 @@
   padding-bottom: 40px;
     }
 
+.round-image-profile {
+  background-color: white;
+    border: 3px solid #772953;
+    border-radius: 50%;
+    margin-top: 2px;
+    margin-right: 15px;
+    overflow: hidden;
+    text-align: center;
+}

@@ -10,41 +10,65 @@
         /li.active
           /= @course.name
       /img.img-responsive alt="" src="http://placehold.it/1200x300" /
-      ul.nav.nav-tabs
-        li.active
-          a aria-expanded="true" data-toggle="tab" href="#home"  Home
-        li
-          a aria-expanded="false" data-toggle="tab" href="#profile"  Lectures
-        li
-          a aria-expanded="false" data-toggle="tab" href="#project"  Projects
-        li.disabled
-          a Disabled
 
-      #myTabContent.tab-content
-        #home.tab-pane.fade.active.in
-          h4 = @course.description
-        #profile.tab-pane.fade
-          p Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.
-        #project.tab-pane.fade
-          p Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.
+      .col-lg-8
+        ul.nav.nav-tabs
+          li.active
+            a aria-expanded="true" data-toggle="tab" href="#home"  Home
+          li
+            a aria-expanded="false" data-toggle="tab" href="#profile"  Lectures
+          li
+            a aria-expanded="false" data-toggle="tab" href="#project"  Projects
+          li.disabled
+            a Disabled
 
+        #myTabContent.tab-content
+          #home.tab-pane.fade.active.in
+            br
+            h5 
+              | Початок курсу: 
+              = @course.start_date
+            h4 = @course.description
+          #profile.tab-pane.fade
+            #accordion.panel-group
+              br
+              - i = 0
+              - @lectures.each_with_index do |lecture, index|
+                - i+=1
+                .panel.panel-default
+                  .panel-heading
+                    h4.panel-title
+                      a.accordion-toggle data-parent="#accordion" data-toggle="collapse" href="#collapse#{index+1}"
+                        = i
+                        | . 
+                        => lecture.name
+                .panel-collapse.collapse id="collapse#{index+1}"
+                    .panel-body
+                      = lecture.plain
+                      => lecture.id
 
+          #project.tab-pane.fade
+            br
+            - @projects.each do |project|
+               .well
+                  div.media
+                    a.pull-left
+                      img.img-responsive alt="" src="http://placehold.it/100x100"
+                    div.media-body
+                      h4 
+                        | Назва проету:
+                        = project.name
+                      h4
+                        | Користувач:
+                        = link_to (project.user.name), user_path(project.user.id)
+                      h5
+                        = sanitize_wysiwyg project.description, shorten: 150
+                
+                
 
-/          h5
-            /= @course.start_date
-
-          h4
-            /= @course.description
-
-
+/
           => link_to "All Courses", courses_path
 
           => link_to "Lectures", course_lectures_path(@course)
 
           => link_to "Projects", course_projects_path(@course)
-
-/.btn-group-vertical
-/  a.btn.btn-default href="#"  Button
-/  a.btn.btn-default href="#"  Button
-/  a.btn.btn-default href="#"  Button
-/  a.btn.btn-default href="#"  Button

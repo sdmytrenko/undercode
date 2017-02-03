@@ -20,6 +20,8 @@ class CoursesController < ApplicationController
   end
 
   def show
+    @lectures = @course.lectures
+    @projects = @course.projects
   end
 
   def edit

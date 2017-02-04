@@ -41,12 +41,21 @@
                         a.accordion-toggle data-parent="#accordion" data-toggle="collapse" href="#collapse#{index+1}"
                           = i
                           | . 
+                          = index
                           => lecture.name
                   .panel-collapse.collapse id="collapse#{index+1}"
                       .panel-body
                         = lecture.plain
                         p
                         = link_to 'More info...', course_lecture_path(@course, lecture)
+              hr
+              ul.nav.nav-pills
+                li
+                  = link_to 'Нова лекція', new_course_lecture_path(@course)
+                li
+                  a href="#"  Button 2
+                li
+                  a href="#"  Button 3
 
             #project.tab-pane.fade
               br

@@ -4,8 +4,38 @@
       li = m
 
   = f.input :name
-  = f.input :plain
-  = f.input :hometask
-  = f.input :litterature
+  = f.input :plain , rows: 10
+  = f.input :hometask, :input_html => {:rows => 7}
+  = f.input :litterature, :input_html => {:rows => 7}
 
   = f.button :submit
+
+javascript:
+  $('#lecture_plain').froalaEditor({
+    height: 200,
+    paragraphFormat: {
+      N: 'Normal',
+      H5: 'Heading',
+      PRE: 'Code'
+    },
+    pastePlain: true
+  }),
+  $('#lecture_hometask').froalaEditor({
+    height: 200,
+    paragraphFormat: {
+      N: 'Normal',
+      H5: 'Heading',
+      PRE: 'Code'
+    },
+    pastePlain: true
+  })
+  $('#lecture_litterature').froalaEditor({
+    linkAlwaysBlank: true,
+    height: 200,
+    paragraphFormat: {
+      N: 'Normal',
+      H5: 'Heading',
+      PRE: 'Code'
+    },
+    pastePlain: true
+  })

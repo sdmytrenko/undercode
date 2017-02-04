@@ -1,12 +1,10 @@
-.custom-container
-  h1.add-text-purple-color
-    | Create Lecture
+.container
+  .row
+    .col-lg-6
+      form.form-horizontal
+        .custom-container
+          h1.add-text-purple-color
+            | Нова лекція
+          hr
 
-  = simple_form_for [@course, @lecture]  do |f|
-
-    = f.input :name
-    = f.input :plain
-    = f.input :hometask
-    = f.input :litterature
-
-    = f.button :submit
+      = render 'form'

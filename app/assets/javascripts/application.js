@@ -19,4 +19,5 @@
 //= require plugins/paragraph_format.min.js
 //= require plugins/quote.min.js
 //= require plugins/table.min.js
+//= require plugins/link.min.js
 //= require_tree .

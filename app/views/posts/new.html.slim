@@ -1,10 +1,10 @@
-h1 Posts#new
-p Find me in app/views/posts/new.html.slim
+.container
+  .row
+    .col-lg-6
+      form.form-horizontal
+        .custom-container
+          h1.add-text-purple-color
+            | Новий пост
+          hr
 
-
-= simple_form_for [@post]  do |f|
-
-  = f.input :title
-  = f.input :description
-
-  = f.button :submit
+      = render 'form'

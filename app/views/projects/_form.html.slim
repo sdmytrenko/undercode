@@ -1,0 +1,40 @@
+= simple_form_for [@course, @project]  do |f|
+  ul.text-danger
+    - @project.errors.full_messages.each do |m|
+      li = m
+
+  = f.input :name
+  = f.input :repo
+  = f.input :tasks
+  = f.input :description
+
+  = f.button :submit
+
+javascript:
+  $('#project_repo').froalaEditor({
+    paragraphFormat: {
+      N: 'Normal',
+      H5: 'Heading',
+      PRE: 'Code'
+    },
+    pastePlain: true
+  }),
+  $('#project_tasks').froalaEditor({
+    height: 200,
+    paragraphFormat: {
+      N: 'Normal',
+      H5: 'Heading',
+      PRE: 'Code'
+    },
+    pastePlain: true
+  })
+  $('#project_description').froalaEditor({
+    linkAlwaysBlank: true,
+    height: 200,
+    paragraphFormat: {
+      N: 'Normal',
+      H5: 'Heading',
+      PRE: 'Code'
+    },
+    pastePlain: true
+  })

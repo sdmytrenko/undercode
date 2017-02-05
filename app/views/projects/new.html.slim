@@ -1,16 +1,10 @@
-h1 Projects#new
-p Find me in app/views/projects/new.html.sli
-m
+.container
+  .row
+    .col-lg-6
+      form.form-horizontal
+        .custom-container
+          h1.add-text-purple-color
+            | Новий проект
+          hr
 
-.custom-container
-  h1.add-text-purple-color
-    | My New Project
-
-  = simple_form_for [@course, @lecture]  do |f|
-
-    = f.input :name
-    = f.input :repo
-    = f.input :description
-    = f.input :tasks
-
-    = f.button :submit
+      = render 'form'

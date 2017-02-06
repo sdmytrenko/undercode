@@ -1,15 +1,129 @@
-h1
-  = @course.name
+.container
+  .row
+    .col-lg-12
+      h1.page-header
+        = @course.name
+        /small Середній рівень/
+      ol.breadcrumb
+        li
+          = link_to 'Courses', courses_path
+        li.active
+          = @course.name
+      /!img.img-responsive alt="" src="http://placehold.it/1200x300" /
+      .row
+        .col-lg-8
+          ul.nav.nav-tabs
+            li.active
+              a aria-expanded="true" data-toggle="tab" href="#home"  Home
+            li
+              a aria-expanded="false" data-toggle="tab" href="#profile"  Lectures
+            li
+              a aria-expanded="false" data-toggle="tab" href="#project"  Projects
+            li.disabled
+              a Disabled
 
-h5
-  = @course.start_date
+          #myTabContent.tab-content
+            #home.tab-pane.fade.active.in
+              br
+              h5 
+                | Початок курсу: 
+                = @course.start_date
+              h4 = @course.description
+            #profile.tab-pane.fade
+              #accordion.panel-group
+                br
+                - i = 0
+                - @lectures.each_with_index do |lecture, index|
+                  - i+=1
+                  .panel.panel-default
+                    .panel-heading
+                      h4.panel-title
+                        a.accordion-toggle data-parent="#accordion" data-toggle="collapse" href="#collapse#{index+1}"
+                          = i
+                          | . 
+                          = index
+                          => lecture.name
+                  .panel-collapse.collapse id="collapse#{index+1}"
+                      .panel-body
+                        = lecture.plain
+                        p
+                        = link_to 'More info...', course_lecture_path(@course, lecture)
+              hr
+              ul.nav.nav-pills
+                li
+                  = link_to 'Нова лекція', new_course_lecture_path(@course)
+                li
+                  a href="#"  Button 2
+                li
+                  a href="#"  Button 3
 
-h4
-  = @course.description
+            #project.tab-pane.fade
+              br
+              - @projects.each do |project|
+                 .well
+                    div.media
+                      a.pull-left
+                        img.img-responsive alt="" src="http://placehold.it/100x100"
+                      div.media-body
+                        h4 
+                          | Назва проету: 
+                          = project.name
+                        h4
+                          | Користувач: 
+                          = link_to (project.user.name), user_path(project.user.id)
+                        p
+                        = link_to 'More info...', course_project_path(@course, project)
+                        /h5/
+                          /= sanitize_wysiwyg project.description, shorten: 150/
+                  
+                  
+        /! Blog Sidebar Widgets Column/
+        .col-lg-4
+          /! Blog Search Well/
+          .well
+            h4 Blog Search
+            .input-group
+              input.form-control type="text" /
+              span.input-group-btn
+                button.btn.btn-default type="button" 
+                  i.fa.fa-search
+            /! /.input-group
+          /! Blog Categories Well/
+          .well
+            h4 Blog Categories
+            .row
+              .col-lg-6
+                ul.list-unstyled
+                  li
+                    a href="#"  Category Name
+                  li
+                    a href="#"  Category Name
+                  li
+                    a href="#"  Category Name
+                  li
+                    a href="#"  Category Name
+              .col-lg-6
+                ul.list-unstyled
+                  li
+                    a href="#"  Category Name
+                  li
+                    a href="#"  Category Name
+                  li
+                    a href="#"  Category Name
+                  li
+                    a href="#"  Category Name
+            /! /.row
+          /! Side Widget Well/
+          .well
+            h4 Side Widget Well
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.
 
 
-=> link_to "All Courses", courses_path
 
-=> link_to "Lectures", course_lectures_path(@course)
 
-=> link_to "Projects", course_projects_path(@course)
+/
+          => link_to "All Courses", courses_path
+
+          => link_to "Lectures", course_lectures_path(@course)
+
+          => link_to "Projects", course_projects_path(@course)

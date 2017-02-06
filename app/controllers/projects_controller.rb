@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = @course.projects.new(project_params)
-
+    @project.user = current_user
     if @project.save
       redirect_to course_project_path(@course, @project)
     else
@@ -25,7 +25,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    if @project.update(lecture_params)
+    if @project.update(project_params)
       redirect_to course_projects_path, flash: {notice: 'Post successfuly updated'}
     else
       render :edit

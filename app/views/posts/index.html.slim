@@ -1,21 +1,76 @@
-h1 Posts#index
-p Find me in app/views/posts/index.html.slim
-h1
-  |POsts
-table.table
-  thead
-    tr
-      th
-        | Name
-  tbody
-    - @posts.each do |post|
-      tr
-        td
-          = link_to post.title, post_path(post)
-        td 
-          = post.user.name
-        td
-          = post.description
+.container
+  .row
+    .col-md-12
+      h1.page-header
+        | Форум 
+        small Може щось тут написати?
+      ol.breadcrumb
+        li
+          = link_to 'Home', root_path
+        li.active Posts
 
-        /td/
-         /= link_to 'Delete post', admin_lecture_path(post), method: :delete, data:{confirm: 'Are you sure?'}/
+      .row
+        .col-md-8
+          table.table.table-striped.table-hover
+            -i = 0
+            thead
+              tr
+                th Тема
+                th Статус
+                th Коменти
+                th Останній комент
+            tbody
+              - @posts.each do |post|
+                tr
+                  td
+                    = link_to post.title, post_path(post)
+                    h6.small
+                      | Автор: 
+                      = link_to post.user.name, user_path(post.user.id)
+                  td ДОРОБИТИ
+                  td
+                    = post.comments.size
+                  td
+                    = post.updated_at
+
+
+        .col-lg-4
+          /! Blog Search Well/
+          .well
+            h4 Blog Search
+            .input-group
+              input.form-control type="text" /
+              span.input-group-btn
+                button.btn.btn-default type="button" 
+                  i.fa.fa-search
+            /! /.input-group
+          /! Blog Categories Well/
+          .well
+            h4 Blog Categories
+            .row
+              .col-lg-6
+                ul.list-unstyled
+                  li
+                    a href="#"  Category Name
+                  li
+                    a href="#"  Category Name
+                  li
+                    a href="#"  Category Name
+                  li
+                    a href="#"  Category Name
+              .col-lg-6
+                ul.list-unstyled
+                  li
+                    a href="#"  Category Name
+                  li
+                    a href="#"  Category Name
+                  li
+                    a href="#"  Category Name
+                  li
+                    a href="#"  Category Name
+            /! /.row
+          /! Side Widget Well/
+          .well
+            h4 Side Widget Well
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.
+

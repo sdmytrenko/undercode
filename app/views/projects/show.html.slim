@@ -1,19 +1,51 @@
-h1 Projects#show
-p Find me in app/views/projects/show.html.slim
+/! Page Content/
+.container
+  /! Page Heading/Breadcrumbs/
+  .row
+    .col-lg-12
+      h1.page-header
+        | Project 
+        small
+          | ### тут може бути назва курсу 
+          a href="#"  
+            = @project.name
+      ol.breadcrumb
+        li
+          = link_to (@project.course.name), course_path(params[:course_id])
+        li.active Project
 
-h1
-  | Project 
 
-h5
-  | Project name 
-  = @project.name
+  .row
+  /! Blog Post Content Column/
+  .col-lg-8
 
-h4
-  | repo: 
-  = @project.repo
-  p
-  |description: 
-  = @project.description
-  p
-  |tasks: 
-  = @project.tasks
+    h3
+      .page-header
+        | Інфа про проект:
+    .row
+      .col-lg-4
+        ul.list-unstyled
+          li
+            h5
+              | Користувач: 
+          li
+            h5
+              | Репозиторій проекту:
+      .col-lg-4
+        ul.list-unstyled
+          li
+            h5 = link_to (@project.user.name), user_path(@project.user.id)
+          li
+            h5 = sanitize_wysiwyg @project.repo
+
+    h3.page-header
+      | Завдання: 
+    = sanitize_wysiwyg @project.tasks
+
+    h3.page-header
+      | Опис проекту: 
+    = sanitize_wysiwyg @project.description
+
+  .col-lg-4
+    .well
+      h5 = link_to 'Редагувати курс', edit_course_project_path(@project.course, @project)

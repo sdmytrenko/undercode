@@ -1,18 +1,17 @@
-= simple_form_for [@course, @lecture] do |f|
+= simple_form_for [@course, @project]  do |f|
   ul.text-danger
-    - @lecture.errors.full_messages.each do |m|
+    - @project.errors.full_messages.each do |m|
       li = m
 
   = f.input :name
-  = f.input :plain
-  = f.input :hometask
-  = f.input :litterature
+  = f.input :repo
+  = f.input :tasks
+  = f.input :description
 
   = f.button :submit
 
 javascript:
-  $('#lecture_plain').froalaEditor({
-    height: 200,
+  $('#project_repo').froalaEditor({
     paragraphFormat: {
       N: 'Normal',
       H5: 'Heading',
@@ -20,7 +19,7 @@ javascript:
     },
     pastePlain: true
   }),
-  $('#lecture_hometask').froalaEditor({
+  $('#project_tasks').froalaEditor({
     height: 200,
     paragraphFormat: {
       N: 'Normal',
@@ -29,7 +28,7 @@ javascript:
     },
     pastePlain: true
   })
-  $('#lecture_litterature').froalaEditor({
+  $('#project_description').froalaEditor({
     linkAlwaysBlank: true,
     height: 200,
     paragraphFormat: {

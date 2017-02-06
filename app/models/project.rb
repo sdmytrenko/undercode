@@ -6,7 +6,7 @@
 #  course_id   :integer
 #  user_id     :integer
 #  name        :string
-#  repo        :string
+#  repo        :text
 #  description :text
 #  tasks       :text
 #  created_at  :datetime         not null

@@ -1,0 +1,19 @@
+= simple_form_for [@post]  do |f|
+
+  = f.input :title
+  = f.input :description
+
+  = f.button :submit
+
+javascript:
+  $('#post_description').froalaEditor({
+    height: 200,
+    paragraphFormat: {
+      N: 'Normal',
+      H4: 'Heading 1',
+      H5: 'Heading 2',
+      H6: 'Heading 3',
+      PRE: 'Code'
+    },
+    pastePlain: true
+  })

@@ -1,16 +1,34 @@
-h1
-  | lecture # #{@lecture.id}
+/! Page Content/
+.container
+  /! Page Heading/Breadcrumbs/
+  .row
+    .col-lg-12
+      h1.page-header
+        | Lecture 
+        small
+          | ### тут може бути назва лекції
+          a href="#"  Або тут
+      ol.breadcrumb
+        li
+          = link_to (@lecture.course.name), course_path(params[:course_id])
+        li.active Lecture
 
-h5
-  | Lecture name 
-  = @lecture.name
+  .row
+  /! Blog Post Content Column/
+  .col-lg-8
 
-h4
-  | Plain: 
-  = @lecture.plain
-  p
-  |hometask: 
-  = @lecture.hometask
-  p
-  |litterature: 
-  = @lecture.litterature
+    h3.page-header
+      | План лекції:
+    = sanitize_wysiwyg @lecture.plain
+
+    h3.page-header
+      | Домашнє завдання:
+    = sanitize_wysiwyg @lecture.hometask
+    
+    h3.page-header
+      | Література:
+    = sanitize_wysiwyg @lecture.litterature
+
+  .col-lg-4
+    .well
+      h5 = link_to 'Редагувати лекцію', edit_course_lecture_path(@lecture.course, @lecture)

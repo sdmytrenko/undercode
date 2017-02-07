@@ -1,7 +1,7 @@
 - @post.comments.each do |comment|
   .media
     a.pull-left href="#" 
-      img.media-object alt="" src="http://placehold.it/64x64" /
+      = avatar_for(comment.user)
     .media-body
       h4.media-heading
         = link_to (comment.user.name), user_path(comment.user.id)

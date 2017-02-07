@@ -20,6 +20,7 @@
 #  active                 :boolean          default("true")
 #  provider               :string
 #  uid                    :string
+#  avatar                 :string
 #
 # Indexes
 #
@@ -34,6 +35,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:github]
+
+  mount_uploader :avatar, AvatarUploader
 
   has_many :projects
   # has_many :courses TODOOOOO

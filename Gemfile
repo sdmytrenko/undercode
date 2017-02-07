@@ -23,6 +23,9 @@ gem 'omniauth-github'
 gem "wysiwyg-rails"
 gem 'truncate_html'
 
+gem 'carrierwave', '>= 1.0.0.rc', '< 2.0' # Add user avatar
+gem "mini_magick" # for carrierwave
+
 group :development do
   gem 'annotate' # annotating models
   gem 'better_errors' # for views

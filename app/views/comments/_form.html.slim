@@ -3,3 +3,14 @@
   - if @comment.post && @comment.post.user == current_user
     = f.input :post_closed, as: :boolean, class: 'btn btn-primary'
   = f.button :submit
+
+javascript:
+  $('#comment_text').froalaEditor({
+    height: 100,
+    paragraphFormat: {
+      N: 'Normal',
+      H5: 'Heading',
+      PRE: 'Code'
+    },
+    pastePlain: true
+  })

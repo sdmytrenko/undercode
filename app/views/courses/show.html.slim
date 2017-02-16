@@ -30,6 +30,17 @@
               h5 
                 | Початок курсу: 
                 = @course.start_date.to_formatted_s(:rfc822)
+              hr
+              .row
+                h4.col-md-6
+
+                  | Кількість студентів: 5
+                  p
+                  | Кількість проектів: 7
+                  p
+                  | Запитання по курсу: 4
+                h4.col-md-6
+              hr
               h4 = @course.description
             #profile.tab-pane.fade
               #accordion.panel-group

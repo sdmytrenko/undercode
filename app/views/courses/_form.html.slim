@@ -1,10 +1,13 @@
-= form_for [@course] do |f|
+= form_for @course, html: {multipart: true} do |f|
   ul.text-danger
     - @course.errors.full_messages.each do |m|
       li = m
 
   = f.label :name
   = f.text_field :name
+
+  = f.label :name
+  = f.file_field :image
 
   = f.label :description
   = f.text_field :description, :input_html => {:style=> 'height: 200px'}

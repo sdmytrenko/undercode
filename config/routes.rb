@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
 
   resources :posts do
-     resources :comments, except: [:index, :show, :new], shallow: true
+    resources :comments, except: [:index, :show, :new], shallow: true
  end
 
   resources :courses do #, only: [:index, :show ] do

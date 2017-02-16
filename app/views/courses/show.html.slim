@@ -70,7 +70,7 @@
                           = project.name
                         h4
                           | Користувач: 
-                          = link_to (project.user.name), user_path(project.user.id)
+                          /= link_to (project.user.name), user_path(project.user.id)/
                         p
                         = link_to 'More info...', course_project_path(@course, project)
                         /h5/

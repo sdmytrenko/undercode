@@ -3,11 +3,11 @@
     .col-md-12
       h1.page-header
         | Форум 
-        small Може щось тут написати?
+        / small Може щось тут написати?/
       ol.breadcrumb
         li
           = link_to 'Home', root_path
-        li.active Posts
+        li.active Пости
 
       .row
         .col-md-8
@@ -27,7 +27,8 @@
                     h6.small
                       | Автор: 
                       = link_to post.user.name, user_path(post.user.id)
-                  td ДОРОБИТИ
+                  td 
+                    a.btn.btn-success href="#"  Активний
                   td
                     = post.comments.size
                   td
@@ -37,7 +38,7 @@
         .col-lg-4
           /! Blog Search Well/
           .well
-            h4 Blog Search
+            h4 Пошук по форуму
             .input-group
               input.form-control type="text" /
               span.input-group-btn
@@ -45,7 +46,7 @@
                   i.fa.fa-search
             /! /.input-group
           /! Blog Categories Well/
-          .well
+/          .well
             h4 Blog Categories
             .row
               .col-lg-6

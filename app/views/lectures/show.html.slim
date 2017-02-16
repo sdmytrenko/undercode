@@ -4,14 +4,14 @@
   .row
     .col-lg-12
       h1.page-header
-        | Lecture 
-        small
-          | ### тут може бути назва лекції
-          a href="#"  Або тут
+        | Інформація по лекції
+        / small /
+          / | ### тут може бути назва лекції /
+          / a href="#"  Або тут /
       ol.breadcrumb
         li
           = link_to (@lecture.course.name), course_path(params[:course_id])
-        li.active Lecture
+        li.active Лекція
 
   .row
   /! Blog Post Content Column/

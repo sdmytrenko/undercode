@@ -29,7 +29,7 @@
               = image_tag("/assets/icons/ror.png")
               h5 
                 | Початок курсу: 
-                = @course.start_date.to_formatted_s(:rfc822)
+                = @course.start_date.to_formatted_s(:short)
               hr
               .row
                 h4.col-md-6

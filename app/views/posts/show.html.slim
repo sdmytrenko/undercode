@@ -22,7 +22,7 @@
 
       hr/
       /! Preview Image/
-      img.img-responsive alt="" src="http://placehold.it/900x300" /
+      = image_tag @post.image.url if @post.image?
       hr/
       /! Post Content/
       h4

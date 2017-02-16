@@ -47,7 +47,7 @@
                           => lecture.name
                   .panel-collapse.collapse id="collapse#{index+1}"
                       .panel-body
-                        = lecture.plain
+                        = sanitize_wysiwyg lecture.plain
                         p
                         = link_to 'Детальніше...', course_lecture_path(@course, lecture)
               hr

@@ -6,7 +6,7 @@
         /small Середній рівень/
       ol.breadcrumb
         li
-          = link_to 'Courses', courses_path
+          = link_to 'Курси', courses_path
         li.active
           = @course.name
       /!img.img-responsive alt="" src="http://placehold.it/1200x300" /
@@ -14,20 +14,22 @@
         .col-lg-8
           ul.nav.nav-tabs
             li.active
-              a aria-expanded="true" data-toggle="tab" href="#home"  Home
+              a aria-expanded="true" data-toggle="tab" href="#home"  Курс
             li
-              a aria-expanded="false" data-toggle="tab" href="#profile"  Lectures
+              a aria-expanded="false" data-toggle="tab" href="#profile"  Лекції
             li
-              a aria-expanded="false" data-toggle="tab" href="#project"  Projects
-            li.disabled
-              a Disabled
+              a aria-expanded="false" data-toggle="tab" href="#project"  Проекти
+            / li.disabled /
+              / a Disabled /
 
           #myTabContent.tab-content
             #home.tab-pane.fade.active.in
               br
+              /img.img-responsive alt="" src="http:\/\/placehold.it\/1200x300"/
+              = image_tag("/assets/icons/ror.png")
               h5 
                 | Початок курсу: 
-                = @course.start_date
+                = @course.start_date.to_formatted_s(:rfc822)
               h4 = @course.description
             #profile.tab-pane.fade
               #accordion.panel-group
@@ -41,21 +43,21 @@
                         a.accordion-toggle data-parent="#accordion" data-toggle="collapse" href="#collapse#{index+1}"
                           = i
                           | . 
-                          = index
+                          / = index/
                           => lecture.name
                   .panel-collapse.collapse id="collapse#{index+1}"
                       .panel-body
                         = lecture.plain
                         p
-                        = link_to 'More info...', course_lecture_path(@course, lecture)
+                        = link_to 'Детальніше...', course_lecture_path(@course, lecture)
               hr
               ul.nav.nav-pills
                 li
                   = link_to 'Нова лекція', new_course_lecture_path(@course)
                 li
-                  a href="#"  Button 2
+                  a href="#"  У формі списку
                 li
-                  a href="#"  Button 3
+                  a href="#"  По викладачам
 
             #project.tab-pane.fade
               br
@@ -63,25 +65,71 @@
                  .well
                     div.media
                       a.pull-left
-                        img.img-responsive alt="" src="http://placehold.it/100x100"
+                        /img.img-responsive alt="" src="http://placehold.it/100x100"/
                       div.media-body
                         h4 
                           | Назва проету: 
                           = project.name
                         h4
                           | Користувач: 
-                          /= link_to (project.user.name), user_path(project.user.id)/
+                          = link_to (project.user.name), user_path(project.user_id)
                         p
-                        = link_to 'More info...', course_project_path(@course, project)
+                        = link_to 'Детальніше...', course_project_path(@course, project)
                         /h5/
                           /= sanitize_wysiwyg project.description, shorten: 150/
-                  
+              .well
+                div.media
+                  a.pull-left
+                    / = image_tag("/assets/icons/dmytrenko.jpg")/ 
+                  div.media-body
+                    h4
+                      | Назва проету:
+                    h4
+                      | Користувач: 
+                    p
+                    = link_to 'Детальніше...'
+
+              .well
+                div.media
+                  a.pull-left
+                    / = image_tag("/assets/icons/dmytrenko.jpg")/ 
+                  div.media-body
+                    h4
+                      | Назва проету:
+                    h4
+                      | Користувач: 
+                    p
+                    = link_to 'Детальніше...'
+
+              .well
+                div.media
+                  a.pull-left
+                    / = image_tag("/assets/icons/dmytrenko.jpg")/ 
+                  div.media-body
+                    h4
+                      | Назва проету:
+                    h4
+                      | Користувач: 
+                    p
+                    = link_to 'Детальніше...'
+
+              .well
+                div.media
+                  a.pull-left
+                    / = image_tag("/assets/icons/dmytrenko.jpg")/ 
+                  div.media-body
+                    h4
+                      | Назва проету:
+                    h4
+                      | Користувач: 
+                    p
+                    = link_to 'Детальніше...'
                   
         /! Blog Sidebar Widgets Column/
         .col-lg-4
           /! Blog Search Well/
           .well
-            h4 Blog Search
+            h4 Пошук по курсу
             .input-group
               input.form-control type="text" /
               span.input-group-btn
@@ -90,33 +138,31 @@
             /! /.input-group
           /! Blog Categories Well/
           .well
-            h4 Blog Categories
+            h4 Останні події
             .row
               .col-lg-6
                 ul.list-unstyled
                   li
-                    a href="#"  Category Name
+                    /a href="#"  Category Name/
                   li
-                    a href="#"  Category Name
+                    /a href="#"  Category Name/
                   li
-                    a href="#"  Category Name
+                    / a href="#"  Category Name/
                   li
-                    a href="#"  Category Name
+                    / a href="#"  Category Name/
               .col-lg-6
                 ul.list-unstyled
                   li
-                    a href="#"  Category Name
+                    / a href="#"  Category Name/ 
                   li
-                    a href="#"  Category Name
+                    / a href="#"  Category Name/
                   li
-                    a href="#"  Category Name
+                    / a href="#"  Category Name/
                   li
-                    a href="#"  Category Name
+                    / a href="#"  Category Name/
             /! /.row
           /! Side Widget Well/
-          .well
-            h4 Side Widget Well
-            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.
+
 
 
 

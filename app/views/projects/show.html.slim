@@ -4,9 +4,9 @@
   .row
     .col-lg-12
       h1.page-header
-        | Project 
+        |
         small
-          | ### тут може бути назва курсу 
+          | Проект  
           a href="#"  
             = @project.name
       ol.breadcrumb
@@ -34,7 +34,7 @@
       .col-lg-4
         ul.list-unstyled
           li
-            h5 = link_to (@project.user.name), user_path(@project.user.id)
+            h5 = link_to (@project.user.name), user_path(@project.user_id)
           li
             h5 = sanitize_wysiwyg @project.repo
 

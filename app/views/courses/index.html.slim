@@ -12,7 +12,8 @@
     - @courses.each do |course|
       .col-md-4.img-portfolio
         = link_to course_path(course) do
-          img.img-responsive.img-hover alt="" src="http://placehold.it/700x400" /
+          / img.img-responsive.img-hover alt="" src="http://placehold.it/700x400" /
+          = image_tag course.image.url if course.image?
         h3
           = link_to course.name, course
         p 
